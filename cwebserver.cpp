@@ -31,8 +31,9 @@ void *handle_client(void *_args) {
     std::string request = read_message(client);
     std::cout << "- Received request" << std::endl << request << std::endl;
 
-    send_message(client, "HTTP/1.1 200 Success\r\n\r\nTest response");
-    std::cout << "- Sent response" << std::endl;
+    std::string response = "HTTP/1.1 200 Success\r\n\r\nTest response";
+    send_message(client, response);
+    std::cout << "- Sent response" << std::endl << response << std::endl;
 
     close(client);
 }
@@ -47,6 +48,7 @@ int main(int argc, char *argv[]) {
 
     portno = atoi(argv[1]);
     server = create_server(portno);
+    std::cout << "- Server started. Ctrl-c to exit" << std::endl;
 
     std::cout << "- Listening for connections..." << std::endl;
 
