@@ -1,4 +1,4 @@
-OBJS = cwebserver.cpp utils.cpp Response.cpp
+OBJS = cwebserver.cpp utils.cpp Request.cpp Response.cpp
 
 CC = g++
 

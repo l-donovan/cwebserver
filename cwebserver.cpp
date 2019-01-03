@@ -1,3 +1,4 @@
+#include "Request.h"
 #include "Response.h"
 #include "utils.h"
 
@@ -29,9 +30,7 @@ void *handle_client(void *_args) {
     int *args = (int*)_args;
     int client = args[0];
 
-    // TODO abstract request to a `Request` class
-    std::string request = read_message(client);
-    std::cout << "- Received request" << std::endl << request << std::endl;
+    Request request = read_message(client);
 
     Response response("Test response");
     response.set_status_code(200);

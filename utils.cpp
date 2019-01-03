@@ -1,3 +1,4 @@
+#include "Request.h"
 #include "utils.h"
 
 #include <cstdarg>
@@ -16,13 +17,13 @@ void error(const char *msg) {
     exit(1);
 }
 
-std::string read_message(int sockfd) {
+Request read_message(int sockfd) {
     char buf[RECV_BUF_SIZE];
 
     int len = recv(sockfd, buf, RECV_BUF_SIZE - 1, 0);
     buf[len] = 0;
-
-    return std::string(buf);
+    
+    return Request(std::string(buf));
 }
 
 void send_message(int sockfd, Response response) {
