@@ -1,10 +1,10 @@
-OBJS = cwebserver.cpp
+OBJS = cwebserver.cpp utils.cpp Response.cpp
 
 CC = g++
 
 LINKER_FLAGS = -lpthread
 
-COMPILER_FLAGS = -std=c++11
+COMPILER_FLAGS = -std=c++17
 
 OBJ_NAME = cwebserver
 
