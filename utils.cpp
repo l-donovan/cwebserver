@@ -93,7 +93,7 @@ std::string format_string(const char *fmt, ...) {
 
     std::string s(len, '\0');
     va_start(args, fmt);
-    std::vsnprintf(s.data(), len + 1, fmt, args);
+    std::vsnprintf(const_cast<char*>(s.data()), len + 1, fmt, args);
     va_end(args);
 
     return s;
